@@ -5,7 +5,7 @@ hide_title: true
 sidebar-label: 'Audio Events'
 ---
 
-### Working GUI Fonts
+### Audio Events
 
 This page lists all(?) available audio events in the game.
 
