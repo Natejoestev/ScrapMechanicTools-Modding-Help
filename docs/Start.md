@@ -8,6 +8,6 @@ slug: /
 
 ### Modding Help
 
-This website contains useful information for modding Scrap Mechanic.
+This website contains useful information and tutorials for modding Scrap Mechanic.
 
 More things will be added over time.
