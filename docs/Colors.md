@@ -52,7 +52,39 @@ Characters that are not paintable are not in the list.
 |  Red Tapebot  |  #ec1919  | 236, 25, 25 |
 |    Farmbot    |  #c52c18  | 197, 44, 24 |
 
+### Interactables Connection Colors
 
+Listed below are the normal and highlighted connection point colors of all vanilla interactables.
+
+:::info note
+These values were taken from the game by extracting the color out of a screenshot. <br></br>
+If you want to do this yourself, you need to make sure that <strong>Godrays are turned OFF</strong> and <br></br>
+that <strong>Brightness is set to 0</strong>. If either one of these settings is changed, the extracted color <br></br>
+will be different.
+:::
+
+
+| Interactable  |                              Color                              |                         Highlight Color                         |
+| :-----------: | :-------------------------------------------------------------: | :-------------------------------------------------------------: |
+|   Bearings    | <cColors style={{backgroundColor: "#007FFF"}}>#007FFF</cColors> | <cColors style={{backgroundColor: "#3094FF"}}>#3094FF</cColors> |
+|    Seats      | <cColors style={{backgroundColor: "#00FF80"}}>#00FF80</cColors> | <cColors style={{backgroundColor: "#6AFFB6"}}>#6AFFB6</cColors> |
+|   Switches    | <cColors style={{backgroundColor: "#EE2A7B"}}>#EE2A7B</cColors> | <cColors style={{backgroundColor: "#FF4394"}}>#FF4394</cColors> |
+|   Buttons     | <cColors style={{backgroundColor: "#EE4AB0"}}>#EE4AB0</cColors> | <cColors style={{backgroundColor: "#F672C2"}}>#F672C2</cColors> |
+|  Logic Gates  | <cColors style={{backgroundColor: "#1E68BB"}}>#1E68BB</cColors> | <cColors style={{backgroundColor: "#3881D3"}}>#3881D3</cColors> |
+|   Timers      | <cColors style={{backgroundColor: "#6B5AAA"}}>#6B5AAA</cColors> | <cColors style={{backgroundColor: "#7E6DBD"}}>#7E6DBD</cColors> |
+|  Robot Heads  | <cColors style={{backgroundColor: "#A2A2A2"}}>#A2A2A2</cColors> | <cColors style={{backgroundColor: "#BBBBBB"}}>#BBBBBB</cColors> |
+|    Decor      | <cColors style={{backgroundColor: "#8C8C8C"}}>#8C8C8C</cColors> | <cColors style={{backgroundColor: "#A8A8A8"}}>#A8A8A8</cColors> |
+| Guns/Cannons  | <cColors style={{backgroundColor: "#CB0A00"}}>#CB0A00</cColors> | <cColors style={{backgroundColor: "#EE0A00"}}>#EE0A00</cColors> |
+|    Lights     | <cColors style={{backgroundColor: "#F6E46A"}}>#F6E46A</cColors> | <cColors style={{backgroundColor: "#F7EB99"}}>#F7EB99</cColors> |
+|   Pistons     | <cColors style={{backgroundColor: "#104CE4"}}>#104CE4</cColors> | <cColors style={{backgroundColor: "#235CEE"}}>#235CEE</cColors> |
+|   Sensors     | <cColors style={{backgroundColor: "#910640"}}>#910640</cColors> | <cColors style={{backgroundColor: "#B60E55"}}>#B60E55</cColors> |
+| Controllers   | <cColors style={{backgroundColor: "#6800D0"}}>#6800D0</cColors> | <cColors style={{backgroundColor: "#8609FF"}}>#8609FF</cColors> |
+|  Thrusters    | <cColors style={{backgroundColor: "#20C5C9"}}>#20C5C9</cColors> | <cColors style={{backgroundColor: "#2CEBF3"}}>#2CEBF3</cColors> |
+| Driver Seats  | <cColors style={{backgroundColor: "#80FF00"}}>#80FF00</cColors> | <cColors style={{backgroundColor: "#B4FF68"}}>#B4FF68</cColors> |
+|   Engines     | <cColors style={{backgroundColor: "#FF8000"}}>#FF8000</cColors> | <cColors style={{backgroundColor: "#FF9F3A"}}>#FF9F3A</cColors> |
+| Cash Register | <cColors style={{backgroundColor: "#8C8C8C"}}>#8C8C8C</cColors> | <cColors style={{backgroundColor: "#A8A8A8"}}>#A8A8A8</cColors> |
+|    Radio      | <cColors style={{backgroundColor: "#767676"}}>#767676</cColors> | <cColors style={{backgroundColor: "#979797"}}>#979797</cColors> |
+|    Other      | <cColors style={{backgroundColor: "#7F7F7F"}}>#7F7F7F</cColors> | <cColors style={{backgroundColor: "#FFFFFF"}}>#FFFFFF</cColors> |
 
 
 
