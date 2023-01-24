@@ -49,19 +49,26 @@ This parameter is probably related to Chapter 2's Voxel Terrain.
 
 ``` title="Usage Example"
 ContentCompiler.exe --prefab
+ContentCompiler.exe --prefab --ugc="C:/path/to/Your Mod"
 ```
-Generates icons for the prefabs in the game files. <br></br>
-It might be possible to combine this parameter with the [--ugc](#--ugc) parameter, though this was not tested.
+Generates prefab icons. <br></br>
+The icons are saved to <code>Gui/PrefabIcons/</code>.
 
+:::info note
+This parameter can be combined with the [--ugc](#--ugc) parameter to generate prefab icons for mods. <br></br>
+When generating prefab icons for a mod, the icons are saved in the mod's <code>Gui/PrefabIcons/</code> folder, not in the game files.
+:::
 ---
 
 ### --blueprint
 
 ``` title="Usage Example"
 ContentCompiler.exe --blueprint
+ContentCompiler.exe --blueprint --ugc="C:/path/to/Your Mod"
 ```
-Generates icons for various blueprints in the game files. <br></br>
-It might be possible to combine this parameter with the [--ugc](#--ugc) parameter, though this was not tested.
+Generates blueprint icons, for blueprints in the <code>Survival/LocalBlueprints/</code> folder. <br></br>
+The icons are saved to <code>Gui/BlueprintIcons/</code>. <br></br>
+This parameter might be combine-able with the [--ugc](#--ugc) parameter to generate blueprint icons for mods, though this was not tested.
 
 ---
 
@@ -70,10 +77,13 @@ It might be possible to combine this parameter with the [--ugc](#--ugc) paramete
 ``` title="Usage Example"
 ContentCompiler.exe --create-atlas --input="../...." --output="../...."
 ```
-Generates an icon atlas.
-This parameter requires the [--input](#--input) and [--output](#--output) parameters to be added as well. <br></br>
+Generates an icon atlas. <br></br>
+This parameter requires the [--input](#--input) and [--output](#--output) parameters to be present. <br></br>
 Further details on what exactly this does are not available as the compiler kept crashing <br></br>
-while trying to test out this parameter and no proper result was generated. <br></br>
+while trying to test out the parameter and no proper result was generated. <br></br>
+
+During testing, pointing the [--input](#--input) parameter to <code>--input="../Data/Gui/"</code> and the [--output](#--output) parameter <br></br>
+to <code>--output="../test.png"</code> generated the most activity before crashing with an access violation error.
 
 ---
 
@@ -81,14 +91,15 @@ while trying to test out this parameter and no proper result was generated. <br>
 
 ``` title="Usage Example"
 ContentCompiler.exe --highres
+ContentCompiler.exe --highres --ugc="C:/path/to/Your Mod"
 ```
 Generates a high-resolution icon image of each block, part and tool in the game's files. <br></br>
 Each icon is saved as a separate 1024x1024p image in the <code>Scrap Mechanic/Cache/IconExport/</code> folder. <br></br>
 
 :::info note
-This parameter can be combined with the [--ugc](#--ugc) parameter to generate high-resolution icons *for mods*.
+This parameter can be combined with the [--ugc](#--ugc) parameter to generate high-resolution icons for mods.
 
-When generating high-resolution icons for *a mod*, the generated icons are still saved in the<code>Scrap Mechanic/Cache/IconExport/</code> folder, *not* in the mod's folder.
+When generating high-resolution icons for a mod, the generated icons are still saved in the <code>Scrap Mechanic/Cache/IconExport/</code> folder, *not* in the mod's folder.
 :::
 
 ---
@@ -106,22 +117,139 @@ It is not confirmed whether this actually works, though it did seem to speed up 
 ### --input
 
 ``` title="Usage Example"
-ContentCompiler.exe --create-atlas --input="../...." --output="../...."
+ContentCompiler.exe --(other parameter) --input="../...."
 ```
-The input folder parameter parameter for the [--create-atlas](#--create-atlas) parameter. <br></br>
-This must be a path **relative to the ContentCompiler.exe**, pointing to a folder. <br></br>
-During testing, pointing it to the game's <code>Gui</code> folder (<code>--input="../Data/Gui/</code>) generated <br></br>
-the largest amount of activity before crashing.
+The input file or folder parameter. <br></br>
+This parameter is required when using the [--create-atlas](#--create-atlas) parameter. <br></br>
+**The file path is relative to the ContentCompiler.exe.**
 
 ---
 
 ### --output
 
 ``` title="Usage Example"
-ContentCompiler.exe --create-atlas --input="../...." --output="../...."
+ContentCompiler.exe --(other parameter) --output="../...."
 ```
-The output file parameter parameter for the [--create-atlas](#--create-atlas) parameter. <br></br>
-This must be a path **relative to the ContentCompiler.exe**, pointing to a file. <br></br>
-During testing, pointing it to a <code>test.png</code> file was the only way the compiler <br></br>
-would not immediately close or crash.
+The output file or folder parameter. <br></br>
+This parameter is required when using the [--create-atlas](#--create-atlas) or [--customization](#--customization) parameter. <br></br>
+**The file path is relative to the ContentCompiler.exe.**
+
+---
+
+### --customization
+
+``` title="Usage Example"
+ContentCompiler.exe --customization --output="../...."
+```
+This parameter is likely used to create character customization (outfit) icons. <br></br>
+It requires a <code>customization-icon-settings.json</code> file to be present in the <code>Scrap Mechanic</code> folder and <br></br>
+the [--output](#--output) parameter to point to a folder **relative to the ContentCompiler.exe**. <br></br>
+
+The <code>customization-icon-settings.json</code> may contain the following settings:
+```json title="Settings"
+{
+	"options": {
+		//"Face" = the outfit category name in Data/Character/customization_options.json
+		"Face": {
+			//A cubemap, but for what? Also not sure if the path is correct.
+			"cubemap": "$SURVIVAL_DATA/Lighting/CubeMaps/Cubemap_outfits/cubemap_outfits_up.tga",
+			//The FOV used for the icon.
+			"fov": 50,
+			//The center of the icon(?)
+			"center": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			//Settings for a light source
+			"lightDir0": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"lightIntensity0": 100,
+			"lightColor0": {
+				"r": 0.5,
+				"g": 0.5,
+				"b": 0.5
+			},
+			//Settings for a second light source
+			"lightDir1": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"lightIntensity1": 100,
+			"lightColor1": {
+				"r": 0.5,
+				"g": 0.5,
+				"b": 0.5
+			},
+			//A preview for something, not sure what. Also not sure what this parameter is supposed to be.
+			"preview": "?",
+			//An effect for something? Not sure what this parameter is supposed to be.
+			"effect": "CustomizationRenderable",
+			//Maybe the camera position or direction
+			"eye": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			//Very likely a pose name from Data/Character/Char_Male/Animations/char_male_outfitposes.rend
+			"pose": "Facepose"
+		}
+	}
+}
+```
+
+:::info note
+How exactly the settings work is currently not fully known. <br></br>
+When used as above or with various changes applies, the compiler only generates a completely <br></br>
+empty, fully transparent image with all pixels set to black (#00000000) for each outfit. <br></br>
+:::
+
+---
+
+### --asset
+
+``` title="Usage Example"
+ContentCompiler.exe --asset
+ContentCompiler.exe --asset --ugc="C:/path/to/Your Mod"
+```
+Generates terrain asset icons. <br></br>
+The icons are saved to <code>Gui/AssetIcons/</code>.
+
+:::info note
+This parameter can be combined with the [--ugc](#--ugc) parameter to generate asset icons for mods. <br></br>
+When generating asset icons for a mod, the icons are saved in the mod's <code>Gui/AssetIcons/</code> folder, not in the game files.
+:::
+
+### --harvestable
+
+``` title="Usage Example"
+ContentCompiler.exe --harvestable
+ContentCompiler.exe --harvestable --ugc="C:/path/to/Your Mod"
+```
+Generates harvestable icons. <br></br>
+The icons are saved to <code>Gui/HarvestableIcons/</code>.
+
+:::info note
+This parameter can be combined with the [--ugc](#--ugc) parameter to generate harvestable icons for mods. <br></br>
+When generating harvestable icons for a mod, the icons are saved in the mod's <code>Gui/HarvestableIcons/</code> folder, not in the game files.
+:::
+
+### --node
+
+``` title="Usage Example"
+ContentCompiler.exe --node
+ContentCompiler.exe --node --ugc="C:/path/to/Your Mod"
+```
+Generates node icons. <br></br>
+The icons are saved to <code>Gui/NodeIcons/</code>.
+
+:::info note
+This parameter can be combined with the [--ugc](#--ugc) parameter to generate node icons for mods. <br></br>
+When generating node icons for a mod, the icons are saved in the mod's <code>Gui/NodeIcons/</code> folder, not in the game files.
+:::
+
 
