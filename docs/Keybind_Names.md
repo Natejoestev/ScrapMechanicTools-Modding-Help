@@ -43,7 +43,7 @@ This page lists all keybinds, what they do and their names to be used in certain
 	"PreviousCreateRotation",	//Rotate a part backwards - Shift + Q
 	"PreviousHotbar",			//Previous Hotbar - ALT + Shift + Q
 	"PreviousMenuItem",			//Previous hotbar item - Mouse Wheel
-	"Reset",					//???
+	"Reset",					//Reset the Challenge Level - F5 (Challenge Mode only)
 	"SelectHotbar1",			//Switch to first hotbar - F1
 	"SelectHotbar2",			//Switch to second hotbar - F2
 	"SelectHotbar3",			//Switch to third hotbar - F3
