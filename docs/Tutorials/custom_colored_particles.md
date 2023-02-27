@@ -6,17 +6,17 @@ sidebar-label: 'Custom Colored Particles with Lua'
 ---
 
 ### Custom Colored Particles with Lua
-Writen by Natejoestev, you can find me in the Guild or<br></br>
+Written by Natejoestev, you can find me in the Guild or<br></br>
 Scrap Mechanic Maps on discord.<br></br>
 
-This tutorial will show you how to make a custom particle that can be colored with the [effect class](https://scrapmechanictools.com/lua/Game-Script-Environment/Userdata/Effect)
+This tutorial will show you how to make a custom particle that can be colored with the [effect class](https://scrapmechanictools.com/lua/Game-Script-Environment/Userdata/Effect).
 
-it will replace the transparency of the particle diff texture, with the given color.
+It will replace the transparency of the particle dif texture with the given color.
 
 The smoke effects had helped me a lot while searching for examples.<br></br>
 Always look at the game files kids.
 
-> Note: that this tutorial assumes that you already know some things about <br></br>
+> Note that this tutorial assumes that you already know some things about <br></br>
 modding SM and the particle system.
 
 ### Table of Contents
@@ -41,22 +41,20 @@ and set `Color Fraction` to `1.0`.
 
 ![Image of Particle Editor](/static/img/ParticleEditor_enableColor.png)
 
-then save it with `Ctrl+s`. you can now close the editor.<br></br>
+Then save it with `Ctrl+s`. You can now close the editor.<br></br>
 
-open `/particles/my_particle.json` and add 
+Open `/particles/my_particle.json` and add 
 ```json
 {"control_point":[[0.0,[1.0,1.0,1.0,0.0]],[0.050,[1.0,1.0,1.0,1.0]],[0.495770,[1.0,1.0,1.0,1.0]],[1.0,[1.0,1.0,1.0,0.0]]],"guid":2,"name":"Color"}
 ```
-to `system:emitters[0]:effects` (this should be an array)<br></br>
+to `system:emitters[0]:effects` (this should be an array).<br></br>
 > Note: `guid`, should be the index of the chunk you added (indexing starts from 1)<br></br>
     So if there is 4 elements including the one added, you would put `4`.
 
 
 ### Changing color with Lua
 
-use:
+You can set the color like this:
 ```lua
 effect:setParameter('Color', sm.color.new(--[[Your Color]]))
 ```
-to change the color.
-
