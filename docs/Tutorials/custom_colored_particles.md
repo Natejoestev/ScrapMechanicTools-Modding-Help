@@ -48,6 +48,8 @@ Open `/particles/my_particle.json` and add
 {"control_point":[[0.0,[1.0,1.0,1.0,0.0]],[0.050,[1.0,1.0,1.0,1.0]],[0.495770,[1.0,1.0,1.0,1.0]],[1.0,[1.0,1.0,1.0,0.0]]],"guid":2,"name":"Color"}
 ```
 to `system:emitters[0]:effects` (this should be an array).<br></br>
+This adds a color effect to the emitter,<br></br>
+but the reason for copying the json is because it requires specific data.
 > Note: `guid`, should be the index of the chunk you added (indexing starts from 1)<br></br>
     So if there is 4 elements including the one added, you would put `4`.
 
