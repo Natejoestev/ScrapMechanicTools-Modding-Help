@@ -39,7 +39,7 @@ modding SM and the particle system.
 First, open `Engine Parameters` and make sure `Color` is checked<br></br>
 and set `Color Fraction` to `1.0`.
 
-![Image of Particle Editor](/static/img/ParticleEditor_enableColor.png)
+![Image of Particle Editor](/img/ParticleEditor_enableColor.png)
 
 Then save it with `Ctrl+s`. You can now close the editor.<br></br>
 
